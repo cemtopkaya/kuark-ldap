@@ -1,0 +1,72 @@
+{
+  "name": "kuark-ldap",
+  "version": "0.0.1",
+  "description": "active directory fonksiyonlari olacak",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cemtopkaya/kuark-ldap.git"
+  },
+  "author": "Cem Topkaya <'cem.topkaya@hotmail.com'> (http://Cem.Topkaya.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cemtopkaya/kuark-ldap/issues"
+  },
+  "homepage": "https://github.com/cemtopkaya/kuark-ldap#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "2.5.1",
+    "eslint-config-standard": "5.1.0",
+    "eslint-watch": "2.1.10",
+    "mocha": "2.4.5",
+    "parallelshell": "2.0.0",
+    "watch": "0.17.1"
+  },
+  "config": {
+    "___Nasıl": "user could change the behavior by doing: npm config set foo:port 80",
+    "port": "3000"
+  },
+  "scripts": {
+    "yorumlar": "Testin öncesinde (pretest) ekranı temizleyelim cls ile... Test aşamasında watch ile src ve test klasörlerindeki değişimleri takip ederek 'npm run test'' çalışacak... Testin ardından(posttest) eslint yapalımki esas kodu geliştirmede zaman harcamayıp, güzelleştirmeyi peşine bırakmış olalım.",
+    "_______________________________________________________________ ESLINT": "___________",
+    "eslint": "eslint src/**/*.js",
+    "eslint:w": "esw --watch src/**/*.js",
+    "w:eslint": "watch \"npm run eslint\" ./src/ ./test/",
+    "_______________________________________________________________ MOCHA": "____________",
+    "mocha": "mocha test/**/*.js --colors --reporter spec",
+    "mocha:w": "mocha test/**/*.js --colors --reporter spec --watch",
+    "w:mocha": "watch \"npm run mocha\" ./src/ ./test/",
+    "_______________________________________________________________ TEST": "_____________",
+    "__yardim": "http://www.marcusoft.net/2015/08/npm-scripting-git-version-and-deploy.html",
+    "pretest": "rm -rf nmp-debug.log",
+    "test": "npm run mocha",
+    "posttest": "npm run eslint",
+    "test:c": "parallelshell \"npm run mocha:w\" \"npm run eslint:w\"",
+    "test:w": "watch \"npm run test\" ./src/ ./test/",
+    "_______________________________________________________________ DEVELOPMENT": "______",
+    "prebuild": "npm run test",
+    "build": "parallelshell 'npm run watch:test",
+    "postbuild": "",
+    "_______________________________________________________________ VERSION": "__________",
+    "preversion": "npm run test",
+    "version": "git add -A && git commit -m\"Versiyon yapılacak\"",
+    "postversion": "git push && git push --tags && npm publish",
+    "version:patch": "npm version patch  -m \" %s Versiyonu yapıldı\" --no-git-tag-version",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "_______________________________________________________________ GIT": "_____________",
+    "git:add": "git add -A",
+    "git:commit": "git commit -m \"Otomatik mesaj\"",
+    "git:push": "git push",
+    "git:AC": "npm run git:add && npm run git:commit",
+    "git:ACP": "npm run git:add && npm run git:commit && npm run git:push",
+    "_______________________________________________________________ PUBLISH": "__________",
+    "prepublish": "",
+    "publish": "",
+    "postpublish": ""
+  },
+  "dependencies": {}
+}
